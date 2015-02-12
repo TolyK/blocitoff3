@@ -12,7 +12,15 @@
        <ul class="nav nav-tabs">
         <li><%= link_to "Toly's Todo", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
-        <li class="navbar-right"><%= link_to "Log in", '#' %></li>
+        
+           <% if current_user %>
+             <li class="navbar-right"> Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+           <% else %>
+             <li class="navbar-right"><%= link_to "Sign In", new_user_session_path %></li>
+             <li class="navbar-right"><%= link_to "Sign Up", new_user_registration_path %></li>
+           <% end %>
+        </li>
+         
       </ul>
 
       <%= yield %>
