@@ -1,0 +1,5 @@
+<h1>Lists!</h1>
+
+<% if @list.nil? %>
+  <%= link_to 'Make a New To-Do List', new_list_path, class: 'btn btn-success' %>
+<% end %>
